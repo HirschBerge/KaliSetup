@@ -10,14 +10,17 @@ sudo bash setup.sh
 # Useful functions and aliases:
 
 `changetarget <IPADDR>` allows you to export your current target IP so you can use it as a variable later on in your commands. For example
+
 `nmap -A -T4 -sV -sC $TARGET --script vuln -p 8080 -oA nmap/nmap`
 `gcat` allows you to use grc's color adding functionality to easierly (is that a word?) parse through your logs. for example
+
 `gcat nmap/nmap.nmap`
 
 `shadowy` takes two files in your `$PWD`; `shadow` and `passwd` and uses john w/ rockyou to try and crack them
 example: `shadowy`
 
 `mkd` makes a directory and cd's into it
+
 Example: `mkd ~/Examples/targetattack/nmap` 
 
 `qnfo` gathers some quick information on a targetted IP. Including ping, traceroute, and quick nmap scan
