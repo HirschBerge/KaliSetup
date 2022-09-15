@@ -27,4 +27,4 @@ echo -en "Installing BitsAdmin"
 git clone https://github.com/bitsadmin/wesng.git /opt/bitsadmin/
 sudo apt update && sudo apt upgrade
 sudo apt install enum4linux bloodhound neo4j grc
-pip3 install bs4 lxml stegoveritas pwncat-cs neovim exa
+pip3 install bs4 lxml stegoveritas pwncat-cs neovim exa pycp
