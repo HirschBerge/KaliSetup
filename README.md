@@ -34,4 +34,5 @@ Usage:
  `TUNIP` is your VPN IP you can `echo $TUNIP` to see your current IP, you can also use it in commands, such as when creating a reverse shell payload
  `LOCIP` same as above, except less useful generally.
 
-# If you open a new terminal window, or source your ~/.zshrc it will automatically try and connect you to VPN. Remember to change the `vpns` alias to reflect to where your OpenVPN file from THM is located so that it works.
+# Important
+If you open a new terminal window, or source your ~/.zshrc it will automatically try and connect you to VPN. Remember to change the `vpns` alias to reflect to where your OpenVPN file from THM is located so that it works.
