@@ -3,9 +3,7 @@ Run to set up with my preferred scripts, functions, and installed software
 To install everything you need:
 ```
 git clone https://github.com/HirschBerge/KaliSetup.git /opt/setup
-
 cd /opt/setup
-
 sudo bash setup.sh
 ```
 
