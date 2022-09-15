@@ -1,0 +1,166 @@
+# Sets the format for the modules.
+format = """
+[╭╴](238)\
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$battery\
+$time\
+$line_break\
+$jobs\
+$status\
+$shell\
+[╰─](238) $localip $character"""
+
+# Wrong command or error occured symbol
+[character]
+error_symbol = "[✗](bold red)"
+# old config
+# success_symbol = "[](238)"
+# error_symbol = "[](238)"
+success_symbol = "ツ"
+
+
+
+# Battery symbols
+[battery]
+full_symbol = "生 "
+charging_symbol = "旅人 "
+discharging_symbol = "死"
+
+# Style for 0-15% battery capacity.
+[[battery.display]]
+threshold = 15
+style = "bold red"
+
+# Style for 10-30% battery capacity.
+[[battery.display]]
+threshold = 30
+style = "#ff6f00"
+
+[[battery.display]]
+threshold = 60
+style = "bold yellow"
+
+# Style for 30-100% battery capacity.
+[[battery.display]]
+threshold = 100
+style = "bold dimmed green"
+
+# Username style & format.
+[username]
+style_user = "bold yelllow"
+format = "[$user]($style) "
+show_always = true
+
+# Will truncate the directory if current folder is a git repo.
+[directory]
+truncation_length = 2
+truncation_symbol = "…/"
+home_symbol = " ~"
+read_only_style = "197"
+read_only = "  "
+format = "『[$path]($style)[$read_only]($read_only_style)』"
+
+# Show the time.
+[time]
+disabled = false
+format = '[\[$time\]]($style) '
+time_format = "%I:%M %P"
+style = "bold purple"
+
+[git_status]
+format = '[\($all_status$ahead_behind\)]($style) '
+style = "bold green"
+conflicted = "🏳"
+up_to_date = " "
+untracked = " "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = " "
+modified = " "
+staged = '[++\($count\)](green)'
+renamed = "襁 "
+deleted = " "
+
+
+[localip]
+ssh_only = false
+format = "[$localipv4]($style)"
+disabled = false
+style = "bold purple"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+# truncation_length = 4
+truncation_symbol = "…/"
+style = "bold green"
+
+[python]
+#symbol = " "
+python_binary = "python3"
+disabled = false
+style = "bold purple"
+
+[hostname]
+ssh_only = true
+ssh_symbol = "🌐 "
+trim_at = "."
+format	= "[$ssh_symbol$hostname]($style) in "
+style = "bold dimmed green"	
+disabled = false
