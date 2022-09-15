@@ -108,8 +108,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
+HISTSIZE=20000
+SAVEHIST=20000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -300,110 +300,7 @@ toggle_oneline_prompt(){
 #   /$$/____ /  \__$$ |$$ |  $$ |$$ |  $$ |$$ \__/  |
 #  /$$      |$$    $$/ $$ |  $$ |$$ |  $$ |$$    $$/
 #  $$$$$$$$/  $$$$$$/  $$/   $$/ $$/   $$/  $$$$$$/
-# Load aliases and shortcuts if existent.
-#~/.scripts/corona
-#[ -f "$HOME/.config/shortcutrc" ] && source "/home/hirschy/.config/shortcutrc"
-#[ -f "$HOME/.config/aliasrc" ] && source "/home/hirschy/.config/aliasrc"
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-#export ZSH="/home/hirschy/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-
-plugins=(
-    archlinux
-    git
-    history-substring-search
-    colored-man-pages
-    zsh-autosuggestions
-    sudo
-    zsh-syntax-highlighting
-    autojump
-    npm
-    brew
-    git-flow-completion
-)
-#source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-#History setup
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
-alias mountnas='sudo mount 10.10.121.169:/mnt/Main\ Storage/Hirschy/hirschy /mnt/nas'
-alias history='history 50'
 setopt nonomatch
 setopt appendhistory
 setopt hist_ignore_all_dups # remove older duplicate entries from history
@@ -438,7 +335,6 @@ alias ping='grc ping'
 alias nmap='sudo grc nmap --open -n '
 alias pcat='pwncat-cs'
 alias -g sorts='sort | uniq -c | sort -n'
-alias netumount='sudo umount -f -l /mnt/Raid_Storage ~/Videos ~/Music/ /mnt/GAMESTORAGE && filesys'
 alias du='~/.scripts/dudu'
 alias mp4renm='~/.scripts/setname'
 alias musicplay='~/.scripts/musicplay'
@@ -456,19 +352,12 @@ alias -s {pdf,epub}='zathura'
 alias -s {doc,docx}='wps'
 alias speedtest='speedtest-cli'
 alias mpv='mpv --fs=yes'
-alias dload='python3 /home/$USER/downloader-cli/download.py'
-alias yt-dl='youtube-dl --write-auto-sub --format "bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best" --merge-output-format mp4'
-alias nas='cd ~/NAS/Anime'
-alias manga='cd /mnt/U32/Manga && exa --group-directories-first -l'
-alias pacup='sudo pacman -Syyu'
 alias zshrc='editZsh'
 alias dtop='cd ~/Desktop && exa --group-directories-first -l'
 alias dloads='cd ~/Downloads'
-alias vi='vim'
-alias pac='yes | sudo pacman'
+alias vi='nvim'
 alias x='exit'
 alias c='clear'
-alias etrash='sudo rm -rf ~/.local/share/Trash/files/* ~/.local/share/Trash/info/*'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
 alias 666='chmod -R 666'
@@ -495,9 +384,6 @@ alias python="python3"
 alias pip="pip3"
 alias ytplaylist='youtube-dl -i -f mp3 --yes-playlist --add-metadata'
 alias bat='batcat'
-#alias mkd="mkdir -pv"
-alias yt="youtube-dl --add-metadata -i"
-alias yta="yt -x -f bestaudio/best"
 alias diff="diff --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias ka="killall"
@@ -509,36 +395,9 @@ alias sdn="sudo shutdown -h now"
 alias f="$FILE"
 alias e="nvim"
 alias v="nvim"
-alias p="sudo pacman"
 alias xr="sudo xbps-remove -R"
 alias xq="xbps-query"
-alias magit="nvim -c MagitOnly"
-alias ref="shortcuts >/dev/null; source ~/.config/shortcutrc"
-alias weath="less -S ~/.local/share/weatherreport"
-alias h="cd ~/ && exa -a"
-alias d="cd ~/Documents && exa -a"
-alias D="cd ~/Downloads && exa -a"
-alias m="cd ~/Music && exa -a"
-alias pp="cd ~/Pictures && exa -a"
-alias vv="cd ~/Videos && exa -a"
-alias cf="cd ~/.config && exa -a"
-alias sc="cd ~/.local/bin && exa -a"
-alias bf="nvim ~/.config/files"
-alias bd="nvim ~/.config/directories"
-alias bw="nvim ~/.config/bookmarks"
-alias cfa="nvim ~/.config/aliasrc"
-alias cfz="nvim $ZDTDIR/.zshrc"
-alias cfv="nvim ~/.config/nvim/init.vim"
-alias cfm="nvim ~/.config/mutt/muttrc"
-alias cfd="nvim ~/.Xdefaults"
-alias cfu="nvim ~/.config/newsboat/urls"
-alias cfn="nvim ~/.config/newsboat/config"
-alias cfmb="nvim ~/.config/ncmpcpp/bindings"
-alias cfmc="nvim ~/.config/ncmpcpp/config"
-alias cfk="nvim ~/.config/sxhkd/sxhkdrc"
-alias cfi="nvim ~/.config/i3/config"
-alias cfb="nvim ~/.config/i3blocks/config"
-alias mp3convert='sh ~/.scripts/mp3convert'
+
 
 # Git aliases
 alias gi="git init"
@@ -554,7 +413,6 @@ alias gst="git stash"
 alias gstl="git stash list"
 alias glg='git log --graph --oneline --decorate --all'
 alias nrs='sudo npm run serve'
-alias awg='animewget'
 
 
 # key bindings
@@ -583,9 +441,6 @@ changetarget(){
 export TARGET="10.10.121.169"
 
 
-getpacks(){
-  pacman -Qi | egrep '^(Name|Installed)' | cut -f2 -d':' | paste - - | column -t | sort -nrk 2 | grep MiB | less
-}
 
 shadowy(){
   unshadow passwd shadow > passwords.txt
@@ -597,10 +452,6 @@ mkd(){
   mkdir -pv $@
   cd $@
 }
-removeURLS(){
-  find ~/NAS/Anime/ -name "urls"
-  find ~/NAS/Anime/ -name "urls" -exec rm -rf {} \;
-}
 
 filesys(){
 	clear
@@ -608,10 +459,6 @@ filesys(){
 	sudo df -hT |grep -v tmp | grep -v File | grep "nfs\|ext4"| sort -nrk 6
 }
 
-ips(){
-	ip a |grep "inet" G "enp" | awk '{ print "Your IP Address is: " $2 }'
-	[[ `ip a | grep "tun\|nord"` ]] && ip a G "inet" G "tun\|nord" | awk '{ print "You are connected to VPN and your Alternate ip is: " $2 }'
-}
 
 qnfo(){
 	grc --colour=auto ping -c 3 $1
@@ -639,7 +486,7 @@ fullcommit(){
 }
 
 
-ex ()
+ ()
 {
   if [ -f $1 ] ; then
     case $1 in
@@ -661,37 +508,7 @@ ex ()
   fi
 }
 
-psshXD(){
-	pssh -i -h $1 -A -l $2 $3
-}
 
-psshLOL(){
-        pssh -i -H $1 -A -l $2 $3
-}
-
-
-
-dotfileBUp(){
-	for j in zsh-syntax-highlighting/ zsh-git-prompt/ zsh-autosuggestions/ powerlevel10k/ .config/ .zsh_history .fonts.conf
-	do
-		yes | cp -r /home/$USER/$j /home/$USER/my-dotfiles/$j
-	done
-#	for i in  zsh-syntax-highlighting/ zsh-git-prompt/ zsh-autosuggestions/ powerlevel10k/
-#	do
-#		mkdir /home/$USER/my-dotfiles/testy$i/
-#		mv /home/$USER/my-dotfiles/$i /home/$USER/my-dotfiles/testy$i
-#		mv /home/$USER/my-dotfiles/testy$i /home/$USER/my-dotfiles/$i
-#	done
-	mkdir /home/$USER/my-dotfiles/config/
-	yes|mv /home/$USER/my-dotfiles/.config/ /home/$USER/my-dotfiles/config
-	git add ~/my-dotfiles/*
-	dotfileCommit
-}
-
-pdftalking(){
-	pdfgrep -oP "\[(.*?)\]" $1|grep ":"
-	pdfgrep -oP "\[(.*?)\]" $1|grep ":"| awk -F":" '{ print $1 }' |sed 's/\[//g' | sorts
-}
 sourceZsh(){
     source ~/.config/zsh/.zshrc
 #    backupToGitHub ~/.zshrc
@@ -766,3 +583,4 @@ then
 else
 	echo "Already connected to vpn..."
 fi
+eval "$(starship init zsh)"
